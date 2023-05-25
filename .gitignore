@@ -3,10 +3,14 @@
 ################################################################################
 
 /aspnet-core/.vs
-/aspnet-core/Snow.Tools/bin
-/aspnet-core/Snow.Tools/obj
-/aspnet-core/Snow.Tools.Excel/bin
-/aspnet-core/Snow.Tools.Excel/obj
-/aspnet-core/Snow.Tools.Demo
-/aspnet-core/Snow.Tools.Demo/bin
-/aspnet-core/Snow.Tools.Demo/obj
+/aspnet-core/src/Snow.Tools/bin
+/aspnet-core/src/Snow.Tools/obj
+/aspnet-core/src/Snow.Tools.Excel/bin
+/aspnet-core/src/Snow.Tools.Excel/obj
+/aspnet-core/src/Snow.Tools.Demo
+/aspnet-core/src/Snow.Tools.Demo/bin
+/aspnet-core/src/Snow.Tools.Demo/obj
+/aspnet-core/test/Snow.Tools.TestBase/bin
+/aspnet-core/test/Snow.Tools.TestBase/obj
+/aspnet-core/test/Snow.Tools.Tests/bin
+/aspnet-core/test/Snow.Tools.Tests/obj
