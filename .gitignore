@@ -1,0 +1,12 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/aspnet-core/.vs
+/aspnet-core/Snow.Tools/bin
+/aspnet-core/Snow.Tools/obj
+/aspnet-core/Snow.Tools.Excel/bin
+/aspnet-core/Snow.Tools.Excel/obj
+/aspnet-core/Snow.Tools.Demo
+/aspnet-core/Snow.Tools.Demo/bin
+/aspnet-core/Snow.Tools.Demo/obj
