@@ -7,7 +7,7 @@ namespace System
 {
     public static class SnowByteExtension
     {
-        public static byte[]? ToMd5(this byte[] source)
+        public static byte[] ToMd5(this byte[] source)
         {
             Check.NotNullOrEmpty(source, nameof(source));
 

@@ -56,8 +56,7 @@ public static class MD5Encrypt
     public static string EncryptTo16(string data)
     {
         var result = Encrypt(data);
-        return BitConverter.ToString(result, 4, 8)
-            .Replace("-", "");
+        return Convert.ToHexString(result, 4, 8);
     }
 
     /// <summary>
@@ -68,9 +67,7 @@ public static class MD5Encrypt
     public static string EncryptTo32(string data)
     {
         var hashBytes = Encrypt(data);
-
-        return BitConverter.ToString(hashBytes)
-            .Replace("-", "");
+        return Convert.ToHexString(hashBytes);
     }
 
     /// <summary>

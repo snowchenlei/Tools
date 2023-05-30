@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using System.Text;
+using Shouldly;
 using Xunit;
 using Convert = System.Convert;
 
@@ -10,23 +11,10 @@ public class SnowByteExtension_Tests
     public void ToMd5_Test()
     {
         var m0 = new byte[] { 0, 0, 0, 0 }.ToMd5();
-        m0.ShouldNotBeNull();
-        m0.ShouldBe(new byte[]
-        {
-            241, 211, 255, 132,
-            67, 41, 119, 50,
-            134, 45, 242, 29,
-            196, 229, 114, 98
-        });
+        Convert.ToHexString(m0).ShouldBe("F1D3FF8443297732862DF21DC4E57262");
+
         var m1 = new byte[] { 1, 1, 1, 1 }.ToMd5();
-        m1.ShouldNotBeNull();
-        m1.ShouldBe(new byte[]
-        {
-            59, 91, 152, 82,
-            86, 126, 247, 97,
-            138, 172, 127, 95,
-            45, 116, 239, 116
-        });
+        Convert.ToHexString(m1).ShouldBe("3B5B9852567EF7618AAC7F5F2D74EF74");
     }
 
     [Fact]
