@@ -21,8 +21,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Snow\Tools\Encrypt\" />
-  </ItemGroup>
-
 </Project>

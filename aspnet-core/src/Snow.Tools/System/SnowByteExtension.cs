@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using Snow.Tools;
+using Snow.Tools.Security.Cryptography;
 
 namespace System
 {
@@ -10,9 +11,7 @@ namespace System
         {
             Check.NotNullOrEmpty(source, nameof(source));
 
-            using var md5 = MD5.Create();
-            md5.ComputeHash(source);
-            return md5.Hash;
+            return MD5Encrypt.Encrypt(source);
         }
     }
 }

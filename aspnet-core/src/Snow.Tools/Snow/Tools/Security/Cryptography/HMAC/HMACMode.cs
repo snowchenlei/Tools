@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace Snow.Tools.Encrypt.HMAC;
+namespace Snow.Tools.Security.Cryptography.HMAC;
 
 /// <summary>
 /// HMAC模式

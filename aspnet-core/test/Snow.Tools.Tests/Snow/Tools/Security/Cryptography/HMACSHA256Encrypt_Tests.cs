@@ -1,9 +1,8 @@
 ﻿using Shouldly;
-using Snow.Tools.Encrypt;
-using Snow.Tools.Encrypt.HMAC;
+using Snow.Tools.Security.Cryptography.HMAC;
 using Xunit;
 
-namespace Snow.Tools.Tests.Snow.Tools.Encrypt;
+namespace Snow.Tools.Tests.Snow.Tools.Security.Cryptography;
 
 public class HMACSHA256Encrypt_Tests
 {

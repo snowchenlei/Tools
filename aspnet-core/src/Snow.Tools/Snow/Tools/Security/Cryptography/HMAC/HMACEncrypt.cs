@@ -1,7 +1,10 @@
 ﻿using System.Text;
 
-namespace Snow.Tools.Encrypt.HMAC;
+namespace Snow.Tools.Security.Cryptography.HMAC;
 
+/// <summary>
+/// HMAC加密
+/// </summary>
 public static class HMACEncrypt
 {
     /// <summary>

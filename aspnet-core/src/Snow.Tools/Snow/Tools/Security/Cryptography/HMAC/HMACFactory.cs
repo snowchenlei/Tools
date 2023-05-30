@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace Snow.Tools.Encrypt.HMAC;
+namespace Snow.Tools.Security.Cryptography.HMAC;
 
 /// <summary>
 /// HMAC工厂

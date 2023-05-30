@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Text;
 using Snow.Tools;
+using Snow.Tools.Security.Cryptography;
 
 namespace System;
 
@@ -425,19 +426,7 @@ public static class SnowStringExtensions
 
     public static string ToMd5(this string str)
     {
-        using (var md5 = MD5.Create())
-        {
-            var inputBytes = Encoding.UTF8.GetBytes(str);
-            var hashBytes = md5.ComputeHash(inputBytes);
-
-            var sb = new StringBuilder();
-            foreach (var hashByte in hashBytes)
-            {
-                sb.Append(hashByte.ToString("X2"));
-            }
-
-            return sb.ToString();
-        }
+        return MD5Encrypt.EncryptTo32(str);
     }
 
     /// <summary>
