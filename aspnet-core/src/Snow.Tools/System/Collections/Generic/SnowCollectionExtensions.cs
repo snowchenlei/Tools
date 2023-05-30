@@ -12,9 +12,9 @@ public static class SnowCollectionExtensions
     /// Checks whatever given collection object is null or has no item.
     /// </summary>
     [ContractAnnotation("source:null => true")]
-    public static bool IsNullOrEmpty<T>([CanBeNull] this ICollection<T> source)
+    public static bool IsNullOrEmpty<T>(this ICollection<T>? source)
     {
-        return source == null || source.Count <= 0;
+        return source is null || source.Count <= 0;
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public static class SnowCollectionExtensions
     /// <param name="item">Item to check and add</param>
     /// <typeparam name="T">Type of the items in the collection</typeparam>
     /// <returns>Returns True if added, returns False if not.</returns>
-    public static bool AddIfNotContains<T>([NotNull] this ICollection<T> source, T item)
+    public static bool AddIfNotContains<T>(this ICollection<T> source, T item)
     {
         Check.NotNull(source, nameof(source));
 
@@ -44,7 +44,7 @@ public static class SnowCollectionExtensions
     /// <param name="items">Item to check and add</param>
     /// <typeparam name="T">Type of the items in the collection</typeparam>
     /// <returns>Returns the added items.</returns>
-    public static IEnumerable<T> AddIfNotContains<T>([NotNull] this ICollection<T> source, IEnumerable<T> items)
+    public static IEnumerable<T> AddIfNotContains<T>(this ICollection<T> source, IEnumerable<T> items)
     {
         Check.NotNull(source, nameof(source));
 
@@ -72,7 +72,7 @@ public static class SnowCollectionExtensions
     /// <param name="itemFactory">A factory that returns the item</param>
     /// <typeparam name="T">Type of the items in the collection</typeparam>
     /// <returns>Returns True if added, returns False if not.</returns>
-    public static bool AddIfNotContains<T>([NotNull] this ICollection<T> source, [NotNull] Func<T, bool> predicate, [NotNull] Func<T> itemFactory)
+    public static bool AddIfNotContains<T>(this ICollection<T> source, Func<T, bool> predicate, Func<T> itemFactory)
     {
         Check.NotNull(source, nameof(source));
         Check.NotNull(predicate, nameof(predicate));
@@ -94,7 +94,7 @@ public static class SnowCollectionExtensions
     /// <param name="source">The collection</param>
     /// <param name="predicate">The condition to remove the items</param>
     /// <returns>List of removed items</returns>
-    public static IList<T> RemoveAll<T>([NotNull] this ICollection<T> source, Func<T, bool> predicate)
+    public static IList<T> RemoveAll<T>(this ICollection<T> source, Func<T, bool> predicate)
     {
         var items = source.Where(predicate).ToList();
 
@@ -112,7 +112,7 @@ public static class SnowCollectionExtensions
     /// <typeparam name="T">Type of the items in the collection</typeparam>
     /// <param name="source">The collection</param>
     /// <param name="items">Items to be removed from the list</param>
-    public static void RemoveAll<T>([NotNull] this ICollection<T> source, IEnumerable<T> items)
+    public static void RemoveAll<T>(this ICollection<T> source, IEnumerable<T> items)
     {
         foreach (var item in items)
         {

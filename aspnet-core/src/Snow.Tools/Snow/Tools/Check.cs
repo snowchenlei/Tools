@@ -7,7 +7,7 @@ public static class Check
     [ContractAnnotation("value:null => halt")]
     public static T NotNull<T>(
         T value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == null)
         {
@@ -20,7 +20,7 @@ public static class Check
     [ContractAnnotation("value:null => halt")]
     public static T NotNull<T>(
         T value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         string message)
     {
         if (value == null)
@@ -34,7 +34,7 @@ public static class Check
     [ContractAnnotation("value:null => halt")]
     public static string NotNull(
         string value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         int maxLength = int.MaxValue,
         int minLength = 0)
     {
@@ -59,7 +59,7 @@ public static class Check
     [ContractAnnotation("value:null => halt")]
     public static string NotNullOrWhiteSpace(
         string value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         int maxLength = int.MaxValue,
         int minLength = 0)
     {
@@ -84,7 +84,7 @@ public static class Check
     [ContractAnnotation("value:null => halt")]
     public static string NotNullOrEmpty(
         string value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         int maxLength = int.MaxValue,
         int minLength = 0)
     {
@@ -107,7 +107,7 @@ public static class Check
     }
 
     [ContractAnnotation("value:null => halt")]
-    public static ICollection<T> NotNullOrEmpty<T>(ICollection<T> value, [InvokerParameterName][NotNull] string parameterName)
+    public static ICollection<T> NotNullOrEmpty<T>(ICollection<T> value, [InvokerParameterName] string parameterName)
     {
         if (value.IsNullOrEmpty())
         {
@@ -118,8 +118,8 @@ public static class Check
     }
 
     public static string Length(
-        [CanBeNull] string value,
-        [InvokerParameterName][NotNull] string parameterName,
+        string? value,
+        [InvokerParameterName] string parameterName,
         int maxLength,
         int minLength = 0)
     {
@@ -146,7 +146,7 @@ public static class Check
 
     public static Int16 Positive(
         Int16 value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -161,7 +161,7 @@ public static class Check
 
     public static Int32 Positive(
         Int32 value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -176,7 +176,7 @@ public static class Check
 
     public static Int64 Positive(
         Int64 value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -191,7 +191,7 @@ public static class Check
 
     public static float Positive(
         float value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -206,7 +206,7 @@ public static class Check
 
     public static double Positive(
         double value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -221,7 +221,7 @@ public static class Check
 
     public static decimal Positive(
         decimal value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
     {
         if (value == 0)
         {
@@ -236,7 +236,7 @@ public static class Check
 
     public static Int16 Range(
         Int16 value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         Int16 minimumValue,
         Int16 maximumValue = Int16.MaxValue)
     {
@@ -250,7 +250,7 @@ public static class Check
 
     public static Int32 Range(
         Int32 value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         Int32 minimumValue,
         Int32 maximumValue = Int32.MaxValue)
     {
@@ -264,7 +264,7 @@ public static class Check
 
     public static Int64 Range(
         Int64 value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         Int64 minimumValue,
         Int64 maximumValue = Int64.MaxValue)
     {
@@ -278,7 +278,7 @@ public static class Check
 
     public static float Range(
         float value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         float minimumValue,
         float maximumValue = float.MaxValue)
     {
@@ -291,7 +291,7 @@ public static class Check
 
     public static double Range(
         double value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         double minimumValue,
         double maximumValue = double.MaxValue)
     {
@@ -305,7 +305,7 @@ public static class Check
 
     public static decimal Range(
         decimal value,
-        [InvokerParameterName][NotNull] string parameterName,
+        [InvokerParameterName] string parameterName,
         decimal minimumValue,
         decimal maximumValue = decimal.MaxValue)
     {
@@ -319,7 +319,7 @@ public static class Check
 
     public static T NotDefaultOrNull<T>(
         T? value,
-        [InvokerParameterName][NotNull] string parameterName)
+        [InvokerParameterName] string parameterName)
         where T : struct
     {
         if (value == null)
