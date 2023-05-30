@@ -1,39 +1,45 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 
-namespace Snow.Tools.Security.Cryptography.HMAC;
+namespace Snow.Tools.Security.Cryptography.Hmacs;
 
 /// <summary>
 /// HMAC加密
 /// </summary>
-public static class HMACEncrypt
+public sealed class HMACEncrypt : IDisposable
 {
+    private readonly HMAC _hmac;
+
+    public HMACEncrypt(HMACMode mode)
+    {
+        _hmac = HMACFactory.CreateHmac(mode);
+    }
+
     /// <summary>
     /// Base64
     /// </summary>
-    /// <param name="mode">密钥模式</param>
     /// <param name="data">待加密数据</param>
     /// <param name="secret">密钥</param>
     /// <returns>Base64加密数据</returns>
-    public static string EncryptToBase64(HMACMode mode, string data, string secret)
+    public string EncryptToBase64(string data, string secret)
     {
-        var hashData = Encrypt(mode, data, secret);
+        var hashData = Encrypt(data, secret);
         return Convert.ToBase64String(hashData);
     }
 
     /// <summary>
     /// 16进制
     /// </summary>
-    /// <param name="mode">密钥模式</param>
     /// <param name="data">待加密数据</param>
     /// <param name="secret">密钥</param>
     /// <returns>16进制加密数据</returns>
-    public static string EncryptToHex(HMACMode mode, string data, string secret)
+    public string EncryptToHex(string data, string secret)
     {
-        var hashData = Encrypt(mode, data, secret);
+        var hashData = Encrypt(data, secret);
         return BitConverter.ToString(hashData).Replace("-", "").ToLower();
     }
 
-    public static byte[] Encrypt(HMACMode mode, string data, string secret)
+    public byte[] Encrypt(string data, string secret)
     {
         Check.NotNullOrEmpty(data, nameof(data));
         Check.NotNullOrEmpty(secret, nameof(secret));
@@ -41,9 +47,14 @@ public static class HMACEncrypt
         var encoding = Encoding.UTF8;
         var keyByte = encoding.GetBytes(secret);
         var dataBytes = encoding.GetBytes(data);
-        using var hmac = HMACFactory.CreateHmac(mode);
-        hmac.Key = keyByte;
 
-        return hmac.ComputeHash(dataBytes);
+        _hmac.Key = keyByte;
+
+        return _hmac.ComputeHash(dataBytes);
+    }
+
+    public void Dispose()
+    {
+        _hmac.Dispose();
     }
 }

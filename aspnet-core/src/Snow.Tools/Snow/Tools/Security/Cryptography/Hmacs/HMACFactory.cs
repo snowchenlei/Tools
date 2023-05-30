@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace Snow.Tools.Security.Cryptography.HMAC;
+namespace Snow.Tools.Security.Cryptography.Hmacs;
 
 /// <summary>
 /// HMAC工厂
@@ -8,7 +8,7 @@ namespace Snow.Tools.Security.Cryptography.HMAC;
 // ReSharper disable once InconsistentNaming
 public class HMACFactory
 {
-    public static System.Security.Cryptography.HMAC CreateHmac(HMACMode mode)
+    public static HMAC CreateHmac(HMACMode mode)
     {
         return mode switch
         {

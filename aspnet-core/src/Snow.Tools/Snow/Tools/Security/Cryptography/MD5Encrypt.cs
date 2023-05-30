@@ -87,7 +87,6 @@ public static class MD5Encrypt
     /// <returns></returns>
     private static MD5 CreateMd5()
     {
-        var md5 = MD5.Create();
-        return md5;
+        return MD5.Create();
     }
 }
